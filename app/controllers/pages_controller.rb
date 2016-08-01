@@ -20,4 +20,6 @@ class PagesController < ApplicationController
       redirect_to challenges_index_path
     end
   end
+
+  
 end

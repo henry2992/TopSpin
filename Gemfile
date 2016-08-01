@@ -41,6 +41,8 @@ gem 'rails_admin'
 
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 

@@ -9,8 +9,6 @@ RSpec.describe Player, type: :model do
     @player = FactoryGirl.create(:player)
   end
 
-
-
   it 'should not be valid without an email' do
     @player.email =  nil
     expect(@player).to be_invalid
@@ -41,10 +39,5 @@ RSpec.describe Player, type: :model do
   it "it should start points at 0" do 
   	expect(@player.points).to be 0
   end
-
-
-
-
-
 
 end

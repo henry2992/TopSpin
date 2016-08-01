@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728021930) do
+ActiveRecord::Schema.define(version: 20160728200222) do
 
   create_table "challenges", force: :cascade do |t|
     t.string   "name"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20160728021930) do
     t.string   "avatar"
     t.integer  "points",                 default: 0
     t.date     "birthday"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "players", ["email"], name: "index_players_on_email", unique: true

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'pages/home'
 
 
-  devise_for :players, controllers: { registrations: 'registrations'}  
+  devise_for :players, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
+ 
 
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
