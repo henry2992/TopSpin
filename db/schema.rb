@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728200222) do
+ActiveRecord::Schema.define(version: 20160801163801) do
 
   create_table "challenges", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "points"
+    t.integer  "level_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "challenges", ["level_id"], name: "index_challenges_on_level_id"
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|

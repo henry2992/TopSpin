@@ -35,7 +35,6 @@ RSpec.describe Player, type: :model do
   	expect(@player).to be_invalid
   end
 
-
   it "it should start points at 0" do 
   	expect(@player.points).to be 0
   end

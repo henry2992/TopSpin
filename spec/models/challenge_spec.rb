@@ -1,7 +1,13 @@
 require 'rails_helper'
 require 'challenge'
+require 'pp'
 
 RSpec.describe Challenge do 
+
+	# Clean DB To test Associations
+	DatabaseCleaner.strategy = :truncation
+	DatabaseCleaner.clean
+
 
 	let(:challenge) { FactoryGirl.create(:challenge) } 
 	subject { challenge }
@@ -35,5 +41,17 @@ RSpec.describe Challenge do
 	    expect(challenge).to be_valid
 	end
 
+	# Associations 
+	it "belongs to level" do
+	    assc = described_class.reflect_on_association(:level)
+	    expect(assc.macro).to eq :belongs_to
+	end
+    
+
+	it "has level" do 
+		expect(challenge.level).to_not be_nil
+		expect(challenge.level.name).to eq 'pro'
+	end
+  
 
 end

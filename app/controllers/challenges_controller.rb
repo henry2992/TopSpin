@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
   
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_player!
 
   def index
   	@challenges = Challenge.all
