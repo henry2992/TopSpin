@@ -2,6 +2,14 @@
 <p>Find me in app/views/challenges/index.html.erb</p>
 
 
+<%= form_tag '', :method => :get do %>
+	<%= select('challenge', 'has_level', Level.all.map { |a| [a.name, a.id]} , :include_blank => 'All People')%>
+	<%= submit_tag 'filter'%>
+<% end %>
+
+
+
+
 
 <% @challenges.each do |challenge| %>
 	<p>------------------</p>

@@ -4,7 +4,14 @@ class ChallengesController < ApplicationController
   before_filter :authenticate_player!
 
   def index
-  	@challenges = Challenge.all
+
+    if (params[:challenge])
+       @challenges = Challenge.has_level(params[:challenge][:has_level]) 
+    else
+      @challenges = Challenge.all
+    end
+
+  	
   end
 
 

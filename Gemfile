@@ -52,7 +52,7 @@ group :development, :test do
   gem 'byebug'
   gem "better_errors"
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails', '~> 4.0', :require => false
   gem 'database_cleaner'
   
 end
