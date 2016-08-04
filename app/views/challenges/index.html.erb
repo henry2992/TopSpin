@@ -20,4 +20,24 @@
 	<p>------------------</p>
 	<br>
 	<br>
+
+
+	<%= form_tag challenge_player_challenges_path(challenge_id: challenge.id), method: :post do %>
+	  <%= submit_tag 'Start Challenge' %>
+	<% end %>
+
+
+
 <% end %>
+
+
+<!-- <script type="text/javascript">
+	
+	$(document).ready(function(){
+	    freezeTopRow($('#dataTable'));
+	    $("#export").click(function(){
+	        $.ajax({url: "patient_record/export", type: "POST"});
+	    });
+	});
+	
+</script> -->

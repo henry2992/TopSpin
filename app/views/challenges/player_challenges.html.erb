@@ -1,0 +1,10 @@
+
+
+<h1><%= current_player.first_name %></h1>
+
+
+<% @player_challenges.each do |player_challenge|%>
+	<p><%= player_challenge.challenge.name %></p>
+<% end %>
+
+

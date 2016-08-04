@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'pages/home'
 
 
+  resources :challenges do 
+    post 'player_challenges'
+
+  end
+
   devise_for :players, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
  
 

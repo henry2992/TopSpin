@@ -15,6 +15,14 @@ class ChallengesController < ApplicationController
   end
 
 
+  def player_challenges
+    PlayerChallenge.where(player_id: current_player, challenge_id: params[:challenge_id]).first_or_create
+    # redirect_to challenges_path    
+    @player_challenges = current_player.player_challenges.all
+
+  end
+
+
   private
   
     # Use callbacks to share common setup or constraints between actions.
@@ -26,6 +34,8 @@ class ChallengesController < ApplicationController
     def challenge_params
       params.require(:challenge).permit(:name, :description, :points)
     end
+
+    
 
 
 end

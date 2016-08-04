@@ -1,6 +1,11 @@
 class Challenge < ActiveRecord::Base
 
 	belongs_to :level
+	has_many :player_challenges
+	has_many :steps
+
+
+
 
 	scope :has_level, -> (id) { where("level_id like ?", "#{id}%")}
 
