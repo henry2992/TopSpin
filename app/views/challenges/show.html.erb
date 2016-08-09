@@ -1,0 +1,22 @@
+
+<h1><%= current_player.first_name %></h1>
+
+
+
+----------
+
+<h3><%=  @challenge.name %></h3>
+
+<% @challenge.steps.each do |step| %>
+	
+	
+	<p><%= step.description %></p>
+
+
+
+
+ <% end %>
+
+
+
+

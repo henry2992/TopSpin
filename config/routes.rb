@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'player_challenges/show'
+
   get 'challenges/index'
 
   root 'pages#home'
@@ -10,8 +12,9 @@ Rails.application.routes.draw do
 
 
   resources :challenges do 
-    post 'player_challenges'
-
+    resources :player_challenges do   
+      post 'complete_task'
+    end
   end
 
   devise_for :players, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}

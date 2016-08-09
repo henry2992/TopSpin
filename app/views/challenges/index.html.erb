@@ -22,10 +22,9 @@
 	<br>
 
 
-	<%= form_tag challenge_player_challenges_path(challenge_id: challenge.id), method: :post do %>
-	  <%= submit_tag 'Start Challenge' %>
-	<% end %>
+	
 
+	<%= link_to 'Start Challenge', challenge_path(challenge) %>
 
 
 <% end %>
@@ -39,5 +38,5 @@
 	        $.ajax({url: "patient_record/export", type: "POST"});
 	    });
 	});
-	
+
 </script> -->

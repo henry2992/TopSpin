@@ -14,6 +14,8 @@ class Player < ActiveRecord::Base
 
   has_many :player_challenges, :dependent => :destroy
 
+  has_many :player_medals, :dependent => :destroy
+
 
     def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |player|
@@ -28,6 +30,9 @@ class Player < ActiveRecord::Base
 	    player.avatar = auth.info.image.gsub('http://','https://')
 	    player.save!
 	end
+
+
+	
 
 
 end

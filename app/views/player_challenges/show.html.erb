@@ -1,0 +1,42 @@
+<h1>PlayerChallenges#show</h1>
+<p>Find me in app/views/player_challenges/show.html.erb</p>
+
+
+<%= medal_notification %>
+
+<p>Progress: <%= @progress %></p>
+
+<p>Challenge ID: <%= @player_challenge.id %></p>
+
+<p>Player Challenge ID: <%= @player_challenge.challenge.id %></p>
+
+
+<p>Medal: <%= @challenge.medal.name if @challenge.medal %></p>
+
+
+
+<br>
+<br>
+<h1>TaskS!</h1>
+<% @challenge.steps.each do |step|  %>
+	
+      
+
+	<p><%= step.description %></p>
+
+	<%= link_to 'Complete Task',
+            {controller: 'player_challenges',
+             action: 'complete_task',
+             player_challenge_id: @player_challenge.id,
+             challenge_id: @player_challenge.challenge.id ,
+             step_id: step },
+             :method=>:post 
+	%>
+
+	<br>
+
+<% end %>
+
+
+<h2>Player</h2>
+<p><%= current_player.first_name %></p>
