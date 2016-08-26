@@ -16,11 +16,15 @@ class PlayerChallenge < ActiveRecord::Base
 	end
   	
 	def progress_percent
-		(player_challenge_progresses.where(completed: true).count * 100) / total_challenges
+		 (player_challenge_progresses.where(completed: true).count * 100) / total_steps if total_steps != 0 
   	end
 
-  	def total_challenges
-  		Step.where(challenge_id: challenge.steps.map(&:id)).count
+  	def total_steps
+  		Step.where(challenge_id: self.challenge.id ).count
   	end
+
+  	# def total_resources
+   #  	Resource.where(section_id: course.sections.map(&:id)).count
+   #  end
 
 end

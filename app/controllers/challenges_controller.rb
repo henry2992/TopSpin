@@ -4,6 +4,8 @@ class ChallengesController < ApplicationController
 
   before_filter :authenticate_player!
 
+
+
   def index
 
     if (params[:challenge])
@@ -12,6 +14,15 @@ class ChallengesController < ApplicationController
       @challenges = Challenge.all
     end
 
+    @leader_board = Player.leaderboard.revrange(0, 9)
+
+    @players = []
+
+    @leader_board.each do |player|
+      @players << Player.find_by_id(player)
+    end
+
+    @player_rank = current_player.my_rank
   	
   end
 
@@ -30,8 +41,7 @@ class ChallengesController < ApplicationController
     end
 
 
-    
-
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
       params.require(:challenge).permit(:name, :description, :points)

@@ -1,20 +1,29 @@
 class Player < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
-  devise :database_authenticatable, :registerable,
+
+  	include Redis::Objects
+  	sorted_set :leaderboard, global: true
+  	after_update :update_leaderboard
+
+  	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  	devise :omniauthable, :omniauth_providers => [:facebook]
 
-  validates :email, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  	validates :email, presence: true
+  	validates :first_name, presence: true
+  	validates :last_name, presence: true
 
+  	
 
+ 	has_many :player_challenges, :dependent => :destroy
+  	has_many :player_medals, :dependent => :destroy
 
-  has_many :player_challenges, :dependent => :destroy
-
-  has_many :player_medals, :dependent => :destroy
+  	
+  	def update_leaderboard
+    	self.class.leaderboard[id] = points
+  	end
 
 
     def self.from_omniauth(auth)
@@ -29,15 +38,12 @@ class Player < ActiveRecord::Base
 	    player.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	    player.avatar = auth.info.image.gsub('http://','https://')
 	    player.save!
+		end
 	end
 
-
-
-	
-
-
-end
-
+	def my_rank
+    	self.class.leaderboard.revrank(id) + 1
+  	end
    
 
 end

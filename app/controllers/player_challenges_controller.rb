@@ -11,6 +11,7 @@ class PlayerChallengesController < ApplicationController
   end
 
   def complete_task
+
     @pc = PlayerChallenge.find(params[:player_challenge_id])
     @chall = Challenge.find(params[:challenge_id])
     @st =  Step.find(params[:step_id])
@@ -55,7 +56,7 @@ class PlayerChallengesController < ApplicationController
     def completed?
       unless @player_challenge.progress_percent == 100
         # If not completed Take Away medal
-        @player_challenge.erase_medal(current_player.id, @medal.id) 
+        @player_challenge.erase_medal(current_player.id, @medal.id)  if @medal != nil
       end 
     end
    
