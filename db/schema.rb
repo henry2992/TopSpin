@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160825031108) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "challenges", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160825031108) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "challenges", ["level_id"], name: "index_challenges_on_level_id"
+  add_index "challenges", ["level_id"], name: "index_challenges_on_level_id", using: :btree
 
   create_table "levels", force: :cascade do |t|
     t.string   "name"
@@ -87,8 +90,8 @@ ActiveRecord::Schema.define(version: 20160825031108) do
     t.datetime "oauth_expires_at"
   end
 
-  add_index "players", ["email"], name: "index_players_on_email", unique: true
-  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+  add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
+  add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
 
   create_table "steps", force: :cascade do |t|
     t.text     "description"
