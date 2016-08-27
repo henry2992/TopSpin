@@ -23,8 +23,6 @@ class PlayerChallenge < ActiveRecord::Base
   		Step.where(challenge_id: self.challenge.id ).count
   	end
 
-  	# def total_resources
-   #  	Resource.where(section_id: course.sections.map(&:id)).count
-   #  end
+  	
 
 end
