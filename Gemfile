@@ -48,8 +48,8 @@ gem 'omniauth-facebook'
 gem 'leaderboard'
 
 gem 'redis-objects'
- gem 'redis'
- gem 'redis-namespace'
+gem 'redis'
+gem 'redis-namespace'
 
    gem "better_errors"
 
