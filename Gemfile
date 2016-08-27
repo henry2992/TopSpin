@@ -51,11 +51,13 @@ gem 'redis-objects'
  gem 'redis'
  gem 'redis-namespace'
 
+   gem "better_errors"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "better_errors"
+
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.0', :require => false
   gem 'database_cleaner'
