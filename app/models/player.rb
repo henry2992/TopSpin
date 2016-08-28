@@ -2,9 +2,9 @@ class Player < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
 
-  	include Redis::Objects
-  	sorted_set :leaderboard, global: true
-  	after_update :update_leaderboard
+  	# include Redis::Objects
+  	# sorted_set :leaderboard, global: true
+  	# after_update :update_leaderboard
 
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -21,9 +21,9 @@ class Player < ActiveRecord::Base
   	has_many :player_medals, :dependent => :destroy
 
   	
-  	def update_leaderboard
-    	self.class.leaderboard[id] = points
-  	end
+  	# def update_leaderboard
+   #  	self.class.leaderboard[id] = points
+  	# end
 
 
     def self.from_omniauth(auth)
@@ -41,9 +41,9 @@ class Player < ActiveRecord::Base
 		end
 	end
 
-	def my_rank
-    	self.class.leaderboard.revrank(id) + 1
-  	end
+	 # def my_rank
+  #   	self.class.leaderboard.revrank(id) + 1
+  # 	end
    
 
 end
