@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'pages/home'
 
+  get 'leaderboards/index'
+
 
   resources :challenges do 
     resources :player_challenges do   
