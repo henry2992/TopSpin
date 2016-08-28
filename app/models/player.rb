@@ -2,8 +2,8 @@ class Player < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
 
-  	# include Redis::Objects
-  	# sorted_set :leaderboard, global: true
+  	include Redis::Objects
+  	sorted_set :leaderboard, global: true
   	# after_update :update_leaderboard
 
   	devise :database_authenticatable, :registerable,
