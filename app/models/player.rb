@@ -4,7 +4,7 @@ class Player < ActiveRecord::Base
 
   	include Redis::Objects
   	sorted_set :leaderboard, global: true
-  	# after_update :update_leaderboard
+  	after_update :update_leaderboard
 
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -21,9 +21,9 @@ class Player < ActiveRecord::Base
   	has_many :player_medals, :dependent => :destroy
 
   	
-  	# def update_leaderboard
-   #  	self.class.leaderboard[id] = points
-  	# end
+  	def update_leaderboard
+    	self.class.leaderboard[id] = points
+  	end
 
 
     def self.from_omniauth(auth)
