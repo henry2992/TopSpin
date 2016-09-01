@@ -18,6 +18,11 @@
       <ul class="nav navbar-nav navbar-right">  
 
         <% if current_player %>
+
+          <li><%= link_to 'Challenges', challenges_index_path %></li>
+
+          <li><%= link_to 'Badges', medals_index_path %></li>
+
           <li><%= link_to 'leaderboard', leaderboards_index_path %></li>
           <li><%= link_to 'edit', edit_player_registration_path %></li>
           <li><%= link_to "Log Out", destroy_player_session_path, method: :delete, :class => 'btn btn-default btn-sm pull-right btn-session'  %></li>

@@ -41,9 +41,13 @@ class Player < ActiveRecord::Base
 		end
 	end
 
-	 # def my_rank
-  #   	self.class.leaderboard.revrank(id) + 1
-  # 	end
+	 def my_rank
+    	self.class.leaderboard.revrank(id) + 1
+  	end
+
+    def is_admin?
+      self.admin
+    end
    
 
 end

@@ -25,13 +25,19 @@ class PlayerChallengesController < ApplicationController
       @pc.points_assigned = true
       @pc.save!
 
-      @pc.assing_medal(current_player.id, @chall.medal.id)
+      @pc.assing_medal(current_player.id, @chall.medal.id) if @chall.medal
 
 
       current_player.points = current_player.points + @chall.points
       current_player.save!
 
-      redirect_to :back, medal_notification: "You won a medal"
+      # Give a Notification if you won a medal.
+      if @chall.medal
+        redirect_to :back, medal_notification: "You won a medal"
+      else
+        redirect_to :back
+      end
+
     else
       redirect_to :back
     end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
 
 
+  get 'medals/index'
 
   get 'player_challenges/show'
 

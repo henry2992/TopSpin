@@ -11,6 +11,12 @@ RailsAdmin.config do |config|
   ## == Cancan ==
   # config.authorize_with :cancan
 
+  RailsAdmin.config do |config|
+    config.authorize_with do
+      redirect_to main_app.root_path unless current_player.is_admin?
+    end
+  end
+
   ## == Pundit ==
   # config.authorize_with :pundit
 
