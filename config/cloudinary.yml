@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hgc3z3ebi
+  api_key: '695961823654781'
+  api_secret: K46mnPSlWa_0sfdCB5OznV6s8dI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hgc3z3ebi
+  api_key: '695961823654781'
+  api_secret: K46mnPSlWa_0sfdCB5OznV6s8dI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hgc3z3ebi
+  api_key: '695961823654781'
+  api_secret: K46mnPSlWa_0sfdCB5OznV6s8dI
+  enhance_image_tag: true
+  static_image_support: false

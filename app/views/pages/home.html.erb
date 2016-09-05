@@ -1,39 +1,327 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="landing-wrapper">
+    
+      <%= image_tag("logo.png", alt: "SpinzCity Logo", id: 'logo') %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <div class="spinzcity-buttons">
 
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true, autofocus: true %>
-    <label class="string required" for="player_birthday"><abbr title="required">*</abbr>Birthday</label>
-    <%= f.text_field :birthday, required: true, autofocus: true, 'data-behaviour' => 'datepicker' %>
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+          <a type="button" class="btn btn-lg spinz-btn spinz-green-bg white"  data-toggle="modal" data-target="#myModal2"  href="">LOG IN</a>
+
+          <a type="button" class="btn btn-lg spinz-btn spinz-green-bg white"  data-toggle="modal" data-target="#myModal"  href="">REGISTER</a>
+
+      </div>      
+
+      <div class="spinzcity-Slider">
+        <div class="spincity-slider-imgs">
+          <div class="slider-img-wrapper">
+             
+          </div>
+          <div class="ns_slideContent container ">
+            <h1 class="slider-content white">Learn Tennis</h1>
+          </div>
+        </div>
+        <div class="spincity-slider-imgs">
+
+          <div class="ns_slideContent container">
+            <h1 class="slider-content white">Earn Badges</h1>
+          </div>
+        </div>
+        <div class="spincity-slider-imgs">
+
+          <div class="ns_slideContent  container ">
+            <h1 class="slider-content white">Win Prizes</h1>
+          </div>
+        </div>
+        <div class="spincity-slider-imgs">
+
+          <div class="ns_slideContent  container ">
+            <h1 class="slider-content white">Challenge your Friends</h1>
+          </div>
+        </div>
+        
+
+        
+      </div>
+      
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  
+
+  <div class="how-it-works">
+    <div class="container">
+
+      <h1 class="center spinz-blue">How does it work</h1>
+      
+      <div class="row works-wrapper">
+
+        <div class="col-md-3 center">
+          <%= image_tag("raquet.png", alt: "SpinzCity", class: 'work-img') %>
+          <div class="work-title-wrapper">
+            <h3 class="work-title center spinz-blue">Sign-Up and Get Ready to Improve Your Tennis</h3>
+          </div>  
+          <p>With SpinzCity, you only need to sign-up to start having fun and improving your tennis!</p>    
+        </div>
+
+        <div class="col-md-3 center">
+          <%= image_tag("medal.png", alt: "SpinzCity", class: 'work-img') %>
+          <div class="work-title-wrapper">
+            <h3 class="work-title center spinz-blue">Complete Challenges to Earn Badges</h3>
+          </div>
+          <p>Each challenge consists of 4-6 activities. Complete all of the activities in a challenge</p>   
+        </div>
+
+        <div class="col-md-3 center" >
+          <%= image_tag("cups.png", alt: "SpinzCity", class: 'work-img') %>
+          <div class="work-title-wrapper">
+            <h3 class="work-title center spinz-blue">Redeem badges for prizes</h3>
+          </div>
+          <p>Redeem your badges for prizes from our sponsors!</p>   
+        </div>
+
+
+        <div class="col-md-3 center spinz-blue">
+          <%= image_tag("balls.png", alt: "SpinzCity", class: 'work-img') %>
+          <div class="work-title-wrapper">
+            <h3 class="work-title">Compete with your friends:</h3>
+          </div>
+          <p>Check the leaderboard to see how you compare to your friends.</p>    
+        </div>
+
+      </div>
+      
+    </div>
   </div>
-<% end %>
 
-<%= link_to "Sign in with Facebook", "players/auth/facebook", id: "sign_in" %>
 
-<h2>Log in</h2>
+  <div class="benefits spinz-blue-bg">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div class="container">
+
+      <div class="benefits-title-wrapper">
+        <h1 class="benefits-title center white">Benefits</h1>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6  white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("kids.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          
+          <div class="col-md-8 benefits-text">
+            <h3 class="spinz-green center">Have fun!</h3>
+            <p>Have fun while you Improve your tennis skills, knowledge, and fitness by competing with and against friends</p>
+          </div>    
+        </div>
+
+        <div class="col-md-6 white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("player.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          <div class="col-md-8 benefits-text">
+            <h3 class="spinz-green center">Improve your tennis skill</h3>
+            <p>These activities are designed to not only be fun, but also to improve your tennis skils.</p> 
+          </div>  
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-6 white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("bag.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          <div class="col-md-8 benefits-text">
+            <h3 class="spinz-green center">Develop a lifetime skill!</h3>
+            <p>tennis is a sport of a lifetime, and by developing your game now, you will have the ability to play this great sport throughout your life.</p> 
+          </div>  
+        </div>
+
+        <div class="col-md-6 white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("players.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          <div class="col-md-8 benefits-text">
+            <h3 class="spinz-green center">Compete with your friends </h3>
+            <p>Being social is part of the fun! Challenge your friends and inspire each other to complete more challenges</p> 
+          </div>  
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-6 white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("family.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          <div class="col-md-8 benefits-text">
+            <h3 class="spinz-green center"> Get Fit! </h3>
+            <p>What better way to get active than through fun activities. In addition to active tennis challenges, compete to earn badges on various fitness challenges.</p>  
+          </div>  
+        </div>
+
+        <div class="col-md-6 white benefit-content">
+          <div class="col-md-4 benefits-img-wrapper">
+            <%= image_tag("hands.png", alt: "SpinzCity", class: 'benefits-img') %>
+          </div>
+          <div class="col-md-8 benefits-text" >
+            <h3 class="spinz-green center">Develop positive youth development assets</h3>
+            <p>Challenges are designed to not only improve your tennis game, but also to improve youth assets such as initiative, grit, competence, and connection.</p>
+          </div>  
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    </div>
+    
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+
+  <div class="about-us">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-4 about-us-img-wrapper">
+          <%= image_tag("bg6.png", alt: "SpinzCity", class: 'about-us-img') %>
+        </div>
+
+        <div class="col-sm-8 ">
+          <h1 class="center spinz-blue">About Us</h1>
+          <p>
+          SpinzCity was created by people who love tennis just like you do! We created this fun platform to help you improve your tennis, have a little fun, and become a better overall person! SpinzCity is a simple, fun, and free way to be active with tennis! </p>
+          <p>
+          The program is designed to work in concert with or independent of private or group tennis instruction. The goal of the program is to develop eye-hand coordination skills appropriate for the age of your tennis player. In addition, students will have an opportunity to learn about tennis through important off-court skills included in this program.
+          </p>
+          <p>
+          Too often with tennis, children are exposed to the sport through weekly lessons and find progress difficult. Other programs nurture the need for practice but do not help create knowledgeable “tennis citizens” who become fans of the sport.
+          </p>
+          <p>
+          This program hopes to capitalize on the natural curiosity of your tennis player and the excitement of achieving goals. With your support, you will see your tennis player not only gaining skills but a greater interest in the sport of tennis. Together, we can give your tennis player the best possible change to become a lifetime tennis player and supporter!
+          </p>
+        </div>
+        
+      </div>
+      
+    </div>
+    
   </div>
-<% end %>
+
+  <div class="join">
+
+    <div class="container">
+      <h1>Ready to Join?</h1>
+
+      <div class="join-btns">
+          <button type="button" class="btn btn-lg spinz-btn spinz-green-bg white">LOGIN</button>
+            <button type="button" class="btn btn-lg spinz-btn spinz-green-bg white">REGISTER</button> 
+      </div>      
+
+    </div>
+    
+  </div>
+
+  <div class="footer spinz-blue-bg" >
+    <div class="container">
+      
+      <h1 class="center white">We are Social</h1>
+
+      <div class="community-icons">
+        <a href="#" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-yt" class="fa fa-youtube-square fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-in" class="fa fa-instagram fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+
+
+
+
+
+  <script>
+    $(document).ready(function(){
+      $(".spinzcity-Slider").nerveSlider({
+        sliderResizable: true,
+        slideTransition: "fade",
+        showArrows: false,
+        showTimer: false,
+        showPause: false
+      });
+    });
+  </script>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header landing-modal-title">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title " id="myModalLabel">Empieza hoy mismo!</h4>
+      </div>
+      <div class="modal-body">
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :first_name, required: true, autofocus: true %>
+                <%= f.input :last_name, required: true, autofocus: true %>
+                <label class="string required" for="player_birthday"><abbr title="required">*</abbr>Birthday</label>
+                <%= f.text_field :birthday, required: true, autofocus: true, 'data-behaviour' => 'datepicker' %>
+                <%= f.input :email, required: true, autofocus: true %>
+                <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up" %>
+              </div>
+            <% end %>
+
+            <%= link_to "Sign in with Facebook", "players/auth/facebook", id: "sign_in" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header landing-modal-title">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title " id="myModalLabel">Empieza hoy mismo!</h4>
+      </div>
+      <div class="modal-body">
+
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Log in" %>
+            </div>
+          <% end %>
+
+            <%= link_to "Sign in with Facebook", "players/auth/facebook", id: "sign_in" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 <script type="text/javascript">

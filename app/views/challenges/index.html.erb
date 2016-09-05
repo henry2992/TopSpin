@@ -1,11 +1,22 @@
 
 
-<h1>Challenges#index</h1>
-<p>Find me in app/views/challenges/index.html.erb</p>
 
-<h2>Player</h2>
-<p><%= current_player.first_name %></p>
-<p>Player Rank: <%= @player_rank %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+
+			<%= cl_image_tag(current_player.avatar.url, class: "", alt: "") %>		
+			<h2>Player</h2>
+			<p><%= current_player.first_name %></p>
+			<p>Player Rank: <%= @player_rank %></p>
+		</div>
+
+		<div class="col-md-4">
+			
+		</div>
+
+	</div>
+</div>
 
 
 

@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
 //= require bootstrap-datepicker
+//= require jquery.nerveSlider.min
+
 

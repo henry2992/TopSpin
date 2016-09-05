@@ -8,18 +8,16 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>  
+<% if current_player %>
+	<%= render 'layouts/header' %>  
+<% end %>
 
-<div class="container">
-	
-	
-    <!-- End Navbar -->
-  
-    <%= render "layouts/flash"  %>
 
-	<%= yield %>
+<%= render "layouts/flash"  %>
 
-</div>
+<%= yield %>
+
+
 
 </body>
 </html>

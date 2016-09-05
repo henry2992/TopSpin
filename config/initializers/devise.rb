@@ -243,7 +243,7 @@ Devise.setup do |config|
 
   {provider_ignores_state: true }
 
-  config.omniauth :facebook, '842358885865932', '60ceb2b66ed29964fec528fbc3f85c36',  scope: 'email, public_profile', info_fields: 'email, first_name, last_name', :image_size => 'large'
+  config.omniauth :facebook, '842358885865932', '60ceb2b66ed29964fec528fbc3f85c36',  scope: 'email, public_profile', info_fields: 'email, first_name, last_name, birthday', :image_size => 'large'
 
 
   # ==> Warden configuration

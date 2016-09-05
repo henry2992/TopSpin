@@ -15,6 +15,7 @@ class Player < ActiveRecord::Base
   	validates :first_name, presence: true
   	validates :last_name, presence: true
 
+    mount_uploader :avatar, AvatarUploader
   	
 
  	  has_many :player_challenges, :dependent => :destroy
@@ -32,7 +33,7 @@ class Player < ActiveRecord::Base
 	    player.uid        = auth.uid
 	    player.email      = auth.info.email
 	    player.first_name = auth.info.first_name
-      	player.last_name  = auth.info.last_name
+      player.last_name  = auth.info.last_name
 	    player.password   = Devise.friendly_token[0,20]
 	    player.oauth_token = auth.credentials.token
 	    player.oauth_expires_at = Time.at(auth.credentials.expires_at)

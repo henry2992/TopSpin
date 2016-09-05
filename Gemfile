@@ -51,7 +51,11 @@ gem 'redis-objects'
 gem 'redis'
 gem 'redis-namespace'
 
-   gem "better_errors"
+
+gem "font-awesome-rails"
+
+gem 'carrierwave'
+gem 'cloudinary'
 
 
 group :development, :test do
@@ -61,6 +65,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.0', :require => false
   gem 'database_cleaner'
+  gem "better_errors"
   
 end
 
