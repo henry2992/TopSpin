@@ -1,2 +1,26 @@
 <h1>Medals#index</h1>
 <p>Find me in app/views/medals/index.html.erb</p>
+
+
+<h1>Medals To win</h1>
+
+
+<% @medals.each do |medal| %>
+
+	<p>---------</p>
+	<%= medal.name %>
+	<p>---------</p>
+
+<% end %>
+
+
+<h1>My Medals</h1>
+<% @player_medal.each do |medal|  %>
+	
+
+	<p>---------</p>
+	<%= medal.medal.name %>
+	<p>---------</p>
+
+
+<% end %>

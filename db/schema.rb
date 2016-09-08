@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901002011) do
+ActiveRecord::Schema.define(version: 20160906223823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160901002011) do
     t.integer  "level_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "picture"
   end
 
   add_index "challenges", ["level_id"], name: "index_challenges_on_level_id", using: :btree
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160901002011) do
     t.integer  "challenge_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "picture"
   end
 
   create_table "player_challenge_progresses", force: :cascade do |t|

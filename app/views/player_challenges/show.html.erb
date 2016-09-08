@@ -1,43 +1,102 @@
-<h1>PlayerChallenges#show</h1>
-<p>Find me in app/views/player_challenges/show.html.erb</p>
 
-
-<%= medal_notification %>
-
-<p>Progress: <%= @progress %></p>
-
-<p>Challenge ID: <%= @player_challenge.id %></p>
-
-<p>Player Challenge ID: <%= @player_challenge.challenge.id %></p>
-
-
-<p>Medal: <%= @challenge.medal.name if @challenge.medal %></p>
-
-
-
-<br>
-<br>
-<h1>TaskS!</h1>
-<% @challenge.steps.each do |step|  %>
-	
+<div class="container">
       
+      <div class="about-challenge">
+            
+            <h1 class="center spinz-blue challenge-main-title "> About this Challenge </h1>
 
-	<p><%= step.description %></p>
-
-	<%= link_to 'Complete Task',
-            {controller: 'player_challenges',
-             action: 'complete_task',
-             player_challenge_id: @player_challenge.id,
-             challenge_id: @player_challenge.challenge.id ,
-             step_id: step },
-             :method=>:post 
-	%>
-
-	<br>
-
-<% end %>
+            <div class=" row rox-fix">
+                <!-- Course Info -->
+                
+                  <div class="col-sm-4 "> 
+                        <div class="progress-ch-img" style="background-image:  url('<%= @challenge.picture %>');" >
+                         </div>
+                  </div>
 
 
-<h2>Player</h2>
-<p><%= current_player.first_name %></p>
-<p>Points <%= current_player.points %></p>
+
+
+                  <div class="col-sm-8 progress-details" >
+                        <h3 class="center spinz-blue challenge-title "><%= @challenge.name %> </h3>
+                        
+
+                        <p class="ch-description"><%= @challenge.description %></p>
+
+                        <p> Points to earn: <span class="ch-points spinz-green"><%=  @challenge.points  %> </span> </p>
+
+                        <p> Progress: </p>
+                       
+                        <div class="progress nav-progress-bar">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progress %>%;">
+                            <%= @progress %> %
+                          </div>
+                        </div>
+
+                        <p>Medal:</p>
+
+
+                        <%= cl_image_tag(@challenge.medal.picture.url, class: "center", alt: "") if @challenge.medal %>
+                  </div>
+            
+            </div>
+
+      </div>
+
+
+      <div class="challenge-steps">
+            
+            <h1 class="center">Steps</h1>
+            <p class="ch-description">To complete this challenge and win your medal, you have to follow and complete this steps:</p>
+
+            <div class="row">
+                  <% @steps_to_complete.each do |step|  %>
+                        
+                        
+                        <div class="step-description col-md-4">
+                              <p><%= step.step.description %></p>
+
+                              <%= link_to 'Completed',
+                                    {controller: 'player_challenges',
+                                     action: 'complete_task',
+                                     player_challenge_id: @player_challenge.id,
+                                     challenge_id: @player_challenge.challenge.id ,
+                                     step_id: step.step },
+                                     :method=>:post, :class => 'center btn btn-success btn-lg disabled' 
+                              %>
+
+                        </div>
+                        
+
+                  <% end %>
+
+                  <% @steps_completed.each do |step|  %>
+                        
+                        
+                        <div class="step-description col-md-4">
+                              <p><%= step.description %></p>
+
+                              <%= link_to 'Complete Task',
+                                    {controller: 'player_challenges',
+                                     action: 'complete_task',
+                                     player_challenge_id: @player_challenge.id,
+                                     challenge_id: @player_challenge.challenge.id ,
+                                     step_id: step },
+                                     :method=>:post, :class => 'center btn btn-success btn-lg' 
+                              %>
+
+                        </div>
+                        
+
+                  <% end %>
+            </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -8,7 +8,7 @@ class PlayerChallenge < ActiveRecord::Base
 
 	# Assign Medal
 	def assing_medal(player, medal) 
-	    PlayerMedal.first_or_create(player_id: player, medal_id: medal)
+	    PlayerMedal.create!(player_id: player, medal_id: medal)
 	end
 
 	def erase_medal(player, medal) 

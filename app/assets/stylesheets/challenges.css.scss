@@ -1,0 +1,105 @@
+// Place all the styles related to the Challenges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+/**************** Challenge User ****************/
+
+.challenge-user-wrapper{
+	padding: 50px 0;
+}
+
+.avatar-img{
+	width: 125px;
+	height: 125px;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+
+
+/******************* Challenges ************************/
+
+.challenges-wrapper{
+	margin: 25px 0px 0px !important;
+
+}
+.challenges-container{
+	margin: 30px 0px;
+	border: 1px solid blue;
+}
+
+
+.ch-container{
+	border: 1px solid yellow;
+	margin: 25px 0;
+}
+
+
+.challenge-wrapper{
+	border: 1px solid red;
+	padding: 15px 0;
+	height: 175px;
+	/*width: 95% !important;*/
+	margin: 0 auto;
+}
+
+.challenge-content h3{
+	margin-bottom: 10px !important;
+}
+
+
+.ch-content-p {
+	font-size: 12.5px;
+	border: solid red 1px;
+	height: 75px;
+	overflow: hidden;
+	margin: 0px !important;
+}
+
+.ch-content-ad{
+	font-size: 10px;
+	margin: 0px !important;
+}
+
+.challenge-img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.challenge-img img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.read-more{
+	margin:0 auto !important;    
+	display:block !important;
+	width: 100px;
+}
+
+.challenge-start{
+	width: 80% !important;
+	padding: 10px 0;
+	margin: 10px auto 0 !important;
+	color: white !important;
+}
+
+.challenge-start a{
+	color: white !important;
+
+}
+
+
+
+
+
+
+
+
+
+

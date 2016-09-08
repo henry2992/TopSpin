@@ -1,46 +1,105 @@
 
 
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-8">
+<div class="challenge-user-wrapper spinz-blue-bg">
+	<div class="container ">
+		<div class="row">
+			<div class="col-md-8">
 
-			<%= cl_image_tag(current_player.avatar.url, class: "", alt: "") %>		
-			<h2>Player</h2>
-			<p><%= current_player.first_name %></p>
-			<p>Player Rank: <%= @player_rank %></p>
+				<div class="col-md-4 center">
+					<%= cl_image_tag(current_player.avatar.url, class: "avatar-img", alt: "") %>
+				</div>
+
+				<div class="col-md-8 white">
+					<p><%= current_player.first_name %> <%= current_player.last_name %></p>
+					<p><%= current_player.email %></p>
+					<p>My Ranking: <%= @player_rank %></p>
+					<p>Points: <%= current_player.points %></p>
+				</div>	
+
+				
+			</div>
+
+			<div class="col-md-4">
+				<h2 class="center white">Your Badges</h2>
+				<% @player_medals.each do |medal|%>
+					<%= medal  %>
+				<% end %>
+			</div>
 		</div>
+	</div>
+</div>
 
-		<div class="col-md-4">
+<div class="challenges-wrapper">
+	<div class="container">
+		<h1 class="spinz-blue center">Challenges</h1>
+
+		<%= form_tag '', :method => :get do %>
+			<%= select('challenge', 'has_level', Level.all.map { |a| [a.name, a.id]} , :include_blank => 'All Levels')%>
+			<%= submit_tag 'filter'%>
+		<% end %>
+
+		<div class="challenges-container">
+
+			
+				
+			<% @challenges.each do |challenge| %>
+
+				<div class="col-md-4 ch-container">
+
+
+					<div class="challenge-wrapper">
+
+						<div class="col-md-4 challenge-img center">
+							<%= cl_image_tag(challenge.picture.url, class: "", alt: "") %>
+						</div>
+
+						<div class="col-md-8 challenge-content" >
+							<h3 class="center spinz-blue"><%= challenge.name  %></h3>
+							<p class="ch-content-p"> <%= challenge.description  %></p>
+							<%= link_to 'Read More', challenge_path(challenge), class: 'read-more' %>
+							<p class="ch-content-ad">Points: <%= challenge.points  %></p>
+							<p class="ch-content-ad">Level: <%= challenge.level.name  %></p>
+
+						</div>
+
+					</div>
+
+
+					<div class="challenge-start center spinz-blue-bg">		
+						<%= link_to 'Start Challenge', challenge_path(challenge), class: "start-ch-btn spinz-blue-bg" %>
+					</div>	
+
+				</div>
+
+			<% end %>
 			
 		</div>
-
 	</div>
+	
+
 </div>
 
 
 
-<%= form_tag '', :method => :get do %>
-	<%= select('challenge', 'has_level', Level.all.map { |a| [a.name, a.id]} , :include_blank => 'All People')%>
-	<%= submit_tag 'filter'%>
-<% end %>
+<div class="footer spinz-blue-bg" >
+    <div class="container">
+      <h1 class="center white">We are Social</h1>
+
+      <div class="community-icons">
+        <a href="#" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-yt" class="fa fa-youtube-square fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-in" class="fa fa-instagram fa-3x social"></i></a>
+          <a href="#" target="_blank"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+        </div>
+    </div>    
+</div>
 
 
 
 
 
-<% @challenges.each do |challenge| %>
-	<p>------------------</p>
-	<p><%= challenge.name  %></p>
-	<p><%= challenge.description  %></p>
-	<p><%= challenge.points  %></p>
-	<p><%= challenge.level.name  %></p>
-	
-	<%= link_to 'Start Challenge', challenge_path(challenge) %>
 
-	<p>------------------</p>	
-
-<% end %>
 
 
 <!-- <script type="text/javascript">

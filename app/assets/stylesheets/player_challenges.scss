@@ -1,3 +1,61 @@
 // Place all the styles related to the PlayerChallenges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.about-challenge{
+	padding: 30px 0;
+}
+
+
+.progress-ch-img{
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 275px;
+	max-width: 250px;
+	background-size: cover;
+	margin: 20px auto;
+	border: 1px solid #ced7df;
+	border-radius: 5px;
+	position: relative;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+
+
+.challenge-main-title {
+	margin: 20px 0 !important;	
+}
+
+.challenge-title{
+	margin: 20px 0 !important;
+}
+
+.ch-description{
+	font-weight: 300;
+	color: #555;
+	line-height: 1.5;
+	margin-bottom: 10px !important;
+	margin-top: 20px !important;
+}
+
+.ch-points{
+	font-size: 1em;
+	font-weight: bold;
+}
+
+
+/**************** Steps *****************/
+
+
+.challenge-steps{
+	padding-bottom: 50px;
+}
+
+.step-description{
+	margin: 25px 0px;
+	padding: 15px;
+}
+
+

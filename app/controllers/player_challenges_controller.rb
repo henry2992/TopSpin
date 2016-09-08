@@ -8,6 +8,11 @@ class PlayerChallengesController < ApplicationController
 
 	def show
 	
+    @steps_to_complete = PlayerChallengeProgress.where(player_challenge: @player_challenge)
+
+    @steps_completed = @challenge.steps.all.where.not(id: PlayerChallengeProgress.where(player_challenge: @player_challenge).map(&:step_id)).order(:id) if @challenge
+    # @steps_completed = @challenge.steps.all.where(id: PlayerChallengeProgress.where(challenge: @challenge).map(&:step_id)).order(:id) if @challenge
+    
   end
 
   def complete_task
@@ -19,7 +24,7 @@ class PlayerChallengesController < ApplicationController
     PlayerChallengeProgress.where(player_challenge_id: @pc, challenge_id: @chall, step_id: @st ).first_or_create
     
     
-    if @pc.progress_percent == 100 and !@pc.points_assigned? 
+    if @pc.progress_percent == 100 && !@pc.points_assigned? 
       
       @pc.completed = true
       @pc.points_assigned = true
@@ -27,8 +32,8 @@ class PlayerChallengesController < ApplicationController
 
       @pc.assing_medal(current_player.id, @chall.medal.id) if @chall.medal
 
-
       current_player.points = current_player.points + @chall.points
+      
       current_player.save!
 
       # Give a Notification if you won a medal.

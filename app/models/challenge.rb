@@ -7,7 +7,9 @@ class Challenge < ActiveRecord::Base
 	
 	has_many :player_challenge_progresses
 
-	scope :has_level, -> (id) { where("level_id like ?", "#{id}%")}
+	mount_uploader :picture, PictureUploader
+
+	scope :has_level, -> (id) { where(" cast(level_id as text) LIKE ?", "#{id}%")  } 
 
 	# Validations
 	validates :name, presence: true

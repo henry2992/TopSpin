@@ -8,18 +8,18 @@ class ChallengesController < ApplicationController
 
   def index
 
-    if (params[:challenge])
-       @challenges = Challenge.has_level(params[:challenge][:has_level]) 
+    if (params[:challenge])  
+        @challenges = Challenge.has_level(params[:challenge][:has_level]) 
     else
       @challenges = Challenge.all
     end
 
-  	
+    @player_medals = current_player.player_medals
   end
 
 
   def show
-    player_challenge = PlayerChallenge.where(player_id: current_player, challenge_id: @challenge.id).first_or_create
+    player_challenge = PlayerChallenge.where(player_id: current_player.id, challenge_id: @challenge.id).first_or_create
     redirect_to challenge_player_challenge_path(@challenge, player_challenge)
   end
 
