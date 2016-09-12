@@ -11,10 +11,16 @@ class ChallengesController < ApplicationController
     if (params[:challenge])  
         @challenges = Challenge.has_level(params[:challenge][:has_level]) 
     else
-      @challenges = Challenge.all
+      @challenges = Challenge.all.where.not(id: PlayerChallenge.where(player_id: current_player, completed: true ).map(&:challenge_id))
     end
 
-    @player_medals = current_player.player_medals
+    
+    
+
+    @player_medals = current_player.player_medals.first(3)
+
+    @player_rank = current_player.my_rank
+    
   end
 
 

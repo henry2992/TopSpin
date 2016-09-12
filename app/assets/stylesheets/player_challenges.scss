@@ -11,8 +11,8 @@
 .progress-ch-img{
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 275px;
-	max-width: 250px;
+	height: 200px;
+	max-width: 175px;
 	background-size: cover;
 	margin: 20px auto;
 	border: 1px solid #ced7df;
@@ -57,5 +57,45 @@
 	margin: 25px 0px;
 	padding: 15px;
 }
+
+
+
+/***************** MEDIA QUERIES ******************/
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+
+}
+
+
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) {
+
+
+
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 992px) {
+	
+	.progress-ch-img{
+		height: 275px;
+		max-width: 250px;
+	}
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+}
+
+
+
+
+
+
+
 
 

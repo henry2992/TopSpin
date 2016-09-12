@@ -1,4 +1,40 @@
-<%= @leader_board  %>
+
+<h1 class="center spinz-blue leaderboard-title">Leaderboard</h1>
+
+<div class="container">
+	
+	<div class="row">
+		
+	   <% counter = 1 %>
+		<% @players.each do |player| %>
+			<div class="col-md-8 col-md-offset-2 players-rankings ">
+			
+				<% if player %>
+					<div class="col-md-4 center">
+
+						<% if player.avatar? == false %>
+							<%= image_tag( 'avatar-guy.png', class: "avatar-img", alt: "") %>
+						<% else %>
+							<%= cl_image_tag(player.avatar.url, class: "avatar-img", alt: "") %>
+						<% end %>
+
+						
+					</div>
+
+					<div class="col-md-8">
+						<h1 class="spinz-blue ">Ranking: <%= counter %></h1>
+						<p><%= player.first_name  %> <%= current_player.last_name %></p>
+						<p><%= player.email  %></p>
+						<p>Points: <%= player.points  %></p>
+					</div>
+					<% counter += 1 %>
+				<% end %>	
+
+			</div>
+			
+		<% end %>
+
+	</div>
 
 
-<%= @players %>
+</div>

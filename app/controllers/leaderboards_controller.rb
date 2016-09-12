@@ -13,7 +13,7 @@ class LeaderboardsController < ApplicationController
       @players << Player.find_by_id(player)
     end
 
-    @player_rank = current_player.my_rank
+    
   	
   end
 

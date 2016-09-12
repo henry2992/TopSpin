@@ -1,26 +1,49 @@
-<h1>Medals#index</h1>
-<p>Find me in app/views/medals/index.html.erb</p>
 
 
-<h1>Medals To win</h1>
 
-
-<% @medals.each do |medal| %>
-
-	<p>---------</p>
-	<%= medal.name %>
-	<p>---------</p>
-
-<% end %>
-
-
-<h1>My Medals</h1>
-<% @player_medal.each do |medal|  %>
+<div class="container">
 	
-
-	<p>---------</p>
-	<%= medal.medal.name %>
-	<p>---------</p>
+	<h1 class="center spinz-blue medals-title">Medals To win</h1>
 
 
-<% end %>
+
+		
+		<% counter = 0 %>
+
+		<% @medals.each do |medal| %>
+
+			<% if (counter%3) == 0 %> 
+				<div class="row">
+			<% end %>
+
+			<div class="col-sm-4  ">
+			
+				<div class=" medals-content ">
+					<%= cl_image_tag(medal.picture.url, class: "medal-img center", alt: "") %>
+				
+					<h3 class="center spinz-green"> <%= medal.name %> </h3>
+					
+					<p class="spinz-blue center "><%= medal.description %></p>
+
+				</div>		
+
+			</div>
+
+
+			<% counter += 1 %>
+
+			<% if (counter%3) == 0 %> 
+				<div class="clearfix"></div>
+				</div>
+			<% end %>
+
+		<% end %>
+		
+
+
+
+	</div>
+
+</div>
+
+

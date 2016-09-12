@@ -1,16 +1,23 @@
 
 
-
 <div class="challenge-user-wrapper spinz-blue-bg">
 	<div class="container ">
 		<div class="row">
 			<div class="col-md-8">
 
 				<div class="col-md-4 center">
-					<%= cl_image_tag(current_player.avatar.url, class: "avatar-img", alt: "") %>
+
+					<% if current_player.avatar? == false %>
+						<%= image_tag( 'avatar-guy.png', class: "avatar-img", alt: "") %>
+					<% else %>
+						<%= cl_image_tag(current_player.avatar.url, class: "avatar-img", alt: "") %>
+					<% end %>
+					<br>
+					<%=  link_to 'Change Profile Picture', edit_player_registration_path, class: "center white ch-pro-pic" %>
+					
 				</div>
 
-				<div class="col-md-8 white">
+				<div class="col-md-8 white pro-ch-info">
 					<p><%= current_player.first_name %> <%= current_player.last_name %></p>
 					<p><%= current_player.email %></p>
 					<p>My Ranking: <%= @player_rank %></p>
@@ -20,11 +27,17 @@
 				
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 your-badges">
 				<h2 class="center white">Your Badges</h2>
-				<% @player_medals.each do |medal|%>
-					<%= medal  %>
-				<% end %>
+				<div class="profile-medal-wrapper">
+					<% @player_medals.each do |medal|%>
+						<%= cl_image_tag(medal.medal.picture.url, class: "profile-medal", alt: "") %>
+					<% end %>
+
+				</div>
+				<div class="center see-medals-wrapper">
+					<%= link_to 'See All', medals_index_path, class: "center see-medals" %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -39,9 +52,8 @@
 			<%= submit_tag 'filter'%>
 		<% end %>
 
-		<div class="challenges-container">
+		<div class="challenges-container center">
 
-			
 				
 			<% @challenges.each do |challenge| %>
 

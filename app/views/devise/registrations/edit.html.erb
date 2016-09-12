@@ -1,27 +1,118 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+<div class="user-edit spinz-blue-bg"> 
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+  <div class="container">
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <div class="col-sm-6">
+
+      <% if current_player.avatar? == false %>
+        <%= image_tag( 'avatar-guy.png', class: "profile-edit-picture", alt: "") %>
+      <% else %>
+        <%= image_tag(current_player.avatar.url, class: "profile-edit-picture", alt: "") %>
+      <%end%>
+
+      <h6 class="center white">Change your Profile Picture ...</h6>
+      <br>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    
+          <%= devise_error_messages! %>
+
+          <%= f.hidden_field :first_name, :value => current_player.first_name %>
+
+          <%= f.file_field :avatar, title: "Pick your Picture", :class => 'text-center center-block well well-sm' %>
+
+          <%= f.submit "Update Profile Picture", :class=> 'white btn btn-primary update-bnt'  %>
+      <% end %>
+      
+    </div>
+
+
+    <div class="col-sm-6">
+      
+        
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+
+            <h1 class="center edit-title white">Edit my Profile</h1>
+
+              <div class="row edit-form">
+                <div class="form-group">
+                  <%= f.label :Name, :class=> 'col-lg-3 control-label white' %>
+                  <div class="col-lg-8">
+                    <%= f.text_field :first_name, :class=> 'form-control', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row edit-form">
+                <div class="form-group">
+                  <%= f.label :Last_Name, :class=> 'col-lg-3 control-label white' %>
+                  <div class="col-lg-8">
+                    <%= f.text_field :last_name, :class=> 'form-control', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row edit-form">
+                <div class="form-group">
+                  <%= f.label :Email, :class=> 'col-lg-3 control-label white' %>
+                  <div class="col-lg-8">
+                    <%= f.text_field :email, :class=> 'form-control', autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Update", :class => 'btn btn-success update-bnt ' %>
+              </div>
+          <% end %>
+        
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+
+</div>
+
+
+<div class="profile-medals-container">
+  
+  <div class="container">
+
+    <h1 class="center spinz-blue "> My Medals </h1>
+    <% counter = 0 %>
+
+      <% @player_medal.each do |medal| %>
+
+        <% if (counter%3) == 0 %> 
+          <div class="row">
+        <% end %>
+
+        <div class="col-sm-4  ">
+        
+          <div class=" medals-content ">
+            <%= cl_image_tag(medal.medal.picture.url, class: "medal-img center", alt: "") %>
+          
+            <h3 class="center spinz-green"> <%= medal.medal.name %> </h3>
+            
+            <p class="spinz-blue center "><%= medal.medal.description %></p>
+
+          </div>    
+
+        </div>
+
+
+        <% counter += 1 %>
+
+        <% if (counter%3) == 0 %> 
+          <div class="clearfix"></div>
+          </div>
+        <% end %>
+
+      <% end %>
   </div>
-<% end %>
+</div>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
