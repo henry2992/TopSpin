@@ -37,7 +37,7 @@ class Player < ActiveRecord::Base
 	    player.password   = Devise.friendly_token[0,20]
 	    player.oauth_token = auth.credentials.token
 	    player.oauth_expires_at = Time.at(auth.credentials.expires_at)
-	    player.avatar = auth.info.image.gsub('http://','https://')
+	    player.avatar = auth.info.image
 	    player.save!
 		end
 	end
