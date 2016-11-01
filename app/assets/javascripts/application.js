@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require bootstrap
 //= require jquery.nerveSlider.min
 //= require moment
 //= require bootstrap-datetimepicker 
 //= require pickers
+//= require turbolinks
+//= require_tree .
 
 
