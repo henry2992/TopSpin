@@ -14,8 +14,6 @@
                   </div>
 
 
-
-
                   <div class="col-sm-8 progress-details" >
                         <h3 class="center spinz-blue challenge-title "><%= @challenge.name %> </h3>
                         
@@ -32,7 +30,7 @@
                           </div>
                         </div>
 
-                        <p>Medal:</p>
+                        <p>Badge:</p>
 
 
                         <%= cl_image_tag(@challenge.medal.picture.url, class: "center", alt: "") if @challenge.medal %>
@@ -55,6 +53,8 @@
                         <div class="step-description col-md-4">
                               <p><%= step.step.description %></p>
 
+
+
                               <%= link_to 'Completed',
                                     {controller: 'player_challenges',
                                      action: 'complete_task',
@@ -75,16 +75,45 @@
                         <div class="step-description col-md-4">
                               <p><%= step.description %></p>
 
-                              <%= link_to 'Complete Task',
-                                    {controller: 'player_challenges',
-                                     action: 'complete_task',
-                                     player_challenge_id: @player_challenge.id,
-                                     challenge_id: @player_challenge.challenge.id ,
-                                     step_id: step },
-                                     :method=>:post, :class => 'center btn btn-success btn-lg' 
-                              %>
+                              <p>To complete this challenge please enter the date when you completed it</p>
 
+                              <input class="datetimepicker" type="text" >
+
+
+                              <button type="button" class="center btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"> Complete Task </button>
                         </div>
+
+
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Complete this Step</h4>
+                              </div>
+                              <div class="modal-body">
+
+                                <p>Are you sure you completed this task?</p>
+
+                                <%= link_to 'Yes, I completed it',
+                                  {controller: 'player_challenges',
+                                  action: 'complete_task',
+                                  player_challenge_id: @player_challenge.id,
+                                  challenge_id: @player_challenge.challenge.id ,
+                                  step_id: step },
+                                  :method=>:post, :class => 'center btn btn-success btn-lg' 
+                                %>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                         
                         
 
                   <% end %>

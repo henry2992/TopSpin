@@ -3,8 +3,9 @@ class MedalsController < ApplicationController
 	before_action :set_medals, only: [:index]
 
 	def index
-	  	@medals = Medal.all.where.not(id: @player_medal.where(player_id: current_player ).map(&:medal_id)).order(:id)
-	end
+	  	# @medals = Medal.all.where.not(id: @player_medal.where(player_id: current_player ).map(&:medal_id)).order(:id)
+	  @medals = Medal.all
+  end
 
 
     private

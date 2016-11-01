@@ -9,13 +9,10 @@ class ChallengesController < ApplicationController
   def index
 
     if (params[:challenge])  
-        @challenges = Challenge.has_level(params[:challenge][:has_level]) 
+        @challenges = Challenge.all.where.not(id: PlayerChallenge.where(player_id: current_player, completed: true ).map(&:challenge_id)).has_level(params[:challenge][:has_level]) 
     else
       @challenges = Challenge.all.where.not(id: PlayerChallenge.where(player_id: current_player, completed: true ).map(&:challenge_id))
     end
-
-    
-    
 
     @player_medals = current_player.player_medals.first(3)
 

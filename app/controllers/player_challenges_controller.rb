@@ -11,7 +11,6 @@ class PlayerChallengesController < ApplicationController
     @steps_to_complete = PlayerChallengeProgress.where(player_challenge: @player_challenge)
 
     @steps_completed = @challenge.steps.all.where.not(id: PlayerChallengeProgress.where(player_challenge: @player_challenge).map(&:step_id)).order(:id) if @challenge
-    # @steps_completed = @challenge.steps.all.where(id: PlayerChallengeProgress.where(challenge: @challenge).map(&:step_id)).order(:id) if @challenge
     
   end
 

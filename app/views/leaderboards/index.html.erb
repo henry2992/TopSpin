@@ -11,14 +11,11 @@
 			
 				<% if player %>
 					<div class="col-md-4 center">
-
 						<% if player.avatar? == false %>
 							<%= image_tag( 'avatar-guy.png', class: "avatar-img", alt: "") %>
 						<% else %>
 							<%= cl_image_tag(player.avatar.url, class: "avatar-img", alt: "") %>
 						<% end %>
-
-						
 					</div>
 
 					<div class="col-md-8">
