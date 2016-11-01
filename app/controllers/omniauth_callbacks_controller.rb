@@ -13,8 +13,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if ((Date.today.mjd - @player.last_sign_in_at.to_date.mjd) < 0 )
         message = 'Welcome back! It’s been 0 days since you last completed an activity. Let’s go play some tennis!'
       else 
-
-        message = 'Welcome back! It’s been ' + (Date.today.mjd - @player.last_sign_in_at.to_date.mjd ) + ' days since you last completed an activity. Let’s go play some tennis!'
+        date = Date.today.mjd - @player.last_sign_in_at.to_date.mjd 
+        # message = 'Welcome back! It’s been ' + () + ' days since you last completed an activity. Let’s go play some tennis!'
+        message = date
       end 
 
 
