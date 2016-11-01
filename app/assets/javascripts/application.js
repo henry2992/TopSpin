@@ -11,13 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require_tree .
 //= require bootstrap
 //= require jquery.nerveSlider.min
 //= require moment
 //= require bootstrap-datetimepicker 
 //= require pickers
-//= require_tree .
-
-
